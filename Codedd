@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <float.h>
+
+
+const double C=2.0; //deklaruje stala
+int main ()
+
+{
+//deklaruje zmienne
+double x, y, z, wynik1, b, m, n, w1, w2, w3;
+double min, max;
+
+printf("Wprowadz x: \n");
+scanf("%lf", &x);
+printf("Wprowadz y: \n");
+scanf("%lf", &y);
+printf("Wprowadz z: \n");
+scanf("%lf", &z);
+
+//przypisuje wartosci do zmiennych
+min=+DBL_MAX;
+max=-DBL_MAX;
+
+//szukam najmniejszej liczby
+if (min>x) {min=x;}             //porownuje X do najwiekszej liczby
+if (min>y) {min=y;}
+
+//szukam najwiekszej liczby
+if (max<y) {max=y;}             //porownuje y do najmniejszej liczby
+if (max<z) {max=z;}
+
+//wprowadzam wzor
+wynik1=(min-max)/C;
+
+//Wyswietlam wynik dzialania w konsoli
+printf("\n\nLiczba m jest rowna: \n");
+printf("%lf", wynik1);
+
+//zeruje zmienna y
+y=0;
+
+//przypisuje wartosci do zmiennych drugiego zadania
+b=-1.6;
+m=0.9;
+n=-1.4;
+
+//komunikuje uzytkownikowi o wprowadzeniu nowej wartosci
+printf("\n\nWprowadz X: \n");
+scanf("%lf",&x);
+
+//wyprowadzam wzor z zadania
+w1=sin(b*m+cos(n*x));
+w2=cos(b*m-sin(x));
+w3=sqrt(exp(fabs(cos(x)))+sqrt(fabs(b*m*x)));
+
+//wprowadzam warunki dla ktorych zostanie wyswietlony wynik dzialania
+if (fabs(b*m)>pow(x,2.0)) {
+    printf("\nWarunek pierwszy zostal spelniony\n");
+    y=w1;
+}
+else if (fabs(b*m)<pow(x,2.0)) {
+    printf("\nWarunek drugi zostal spelniony\n");
+    y=w2;
+}
+else if (fabs(b*m)==pow(x,2.0)) {
+    printf("\nWarunek trzeci zostal speniony\n");
+    y=w3;
+}
+else {
+    printf("\nZaden warunek nie zostal speniony\n");
+}
+
+//wyswietlam wynik dzialania w konsoli
+printf("\nWynik dzialania na podstawie spelnionego warunku to: \n");
+printf("%lf", y);
+printf("\nWynik w formie wykladniczej: \n");
+printf("%e", y);
+printf("\nWynik w zaokragleniu do dwoch miejsc po przecinku: \n");
+printf("%.2lf", y);
+
+return 0;
+
+}
